@@ -11,16 +11,14 @@ jobs:
     strategy:
       matrix:
         node-version: [22.x]
-        pnpm-version: [9]
     env:
       CI: true
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use pnpm v.${[ matrix.pnpm-version
+      - name: Use pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: ${{ matrix.pnpm-version }}
           run_install: false
 
       - name: Use Node.js ${{ matrix.node-version }}
