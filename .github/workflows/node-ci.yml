@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         node-version: [22.x]
-        pnpm-version: [9.x]
+        pnpm-version: [9]
     env:
       CI: true
     steps:
