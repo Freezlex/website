@@ -18,6 +18,7 @@
     "web-vitals": "^4.2.1"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
