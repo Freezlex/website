@@ -1,7 +1,7 @@
 import React from "react";
 import './home-hero.component.css'
 import { ReactComponent as MapPin } from "@icons/map-pin.svg";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 
 export default function HomeHeroComponent() {
     return (
@@ -14,7 +14,7 @@ export default function HomeHeroComponent() {
                 </div>
             </div>
             <div className='hero-middle'>
-                <p>I’m a full-stack student developer but also your average open-source contributor.</p>
+                <p>I’m a full-stack developer but also your average open-source contributor.</p>
                 <p className={'silent'}>And sometimes I’m also streaming on Twitch</p>
             </div>
             <div className='hero-bottom'>

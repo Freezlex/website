@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import {createBrowserRouter, RouterProvider} from 'react-router';
 import HomeComponent from '@views/home/home.component';
 import NotFoundComponent from '@views/not-found/not-found.component';
 import ProjectsComponent from "@views/projects/projects.component";
@@ -35,7 +35,7 @@ const router = createBrowserRouter(
 
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+      <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

@@ -1,6 +1,6 @@
 import React from "react";
 import './projects-hero.component.css'
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 
 export default function ProjectsHeroComponent() {
     return <div className='projects-hero'>
