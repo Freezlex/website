@@ -60,6 +60,6 @@ describe('Home view', () => {
     it('sets the document title', () => {
         render(<Home />);
 
-        expect(document.title).toBe('Freezlex · my.experiments');
+        expect(document.title).toBe('Freezlex · Home');
     });
 });
