@@ -1,0 +1,109 @@
+.waves {
+    position: absolute;
+    inset: -35%;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(48px);
+    translate: calc(var(--silk-x, 0) * -22px) calc(var(--silk-y, 0) * -16px);
+    transition: translate 900ms var(--ease-out-expo);
+}
+
+.waves::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 20%, var(--wave-scrim) 55%, transparent 90%);
+}
+
+.waves span {
+    position: absolute;
+    inset: 0;
+    border-radius: 45%;
+    animation: wave-drift 22s ease-in-out infinite alternate;
+}
+
+.waves span:nth-child(1) {
+    background: conic-gradient(
+        from 210deg at 30% 40%,
+        var(--wave-base),
+        var(--wave-fold) 25%,
+        var(--wave-base) 45%,
+        var(--wave-deep) 70%,
+        var(--wave-base)
+    );
+}
+
+.waves span:nth-child(2) {
+    background: radial-gradient(60% 45% at 70% 60%, var(--wave-deep), var(--wave-fold) 45%, transparent 75%);
+    animation-duration: 30s;
+    animation-delay: -12s;
+    animation-direction: alternate-reverse;
+}
+
+/* Indigo glow (POC "blob-1") */
+.waves span:nth-child(3) {
+    background: radial-gradient(35% 30% at 62% 28%, var(--wave-glow), transparent 70%);
+    animation-duration: 17s;
+    animation-delay: -5s;
+}
+
+/* Blue glow (POC "blob-2") */
+.waves span:nth-child(4) {
+    background: radial-gradient(30% 28% at 78% 78%, var(--wave-glow-alt), transparent 70%);
+    animation-duration: 24s;
+    animation-delay: -9s;
+    animation-direction: alternate-reverse;
+}
+
+.waves-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-size: 30px 30px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+@keyframes wave-drift {
+    0% {
+        translate: -14% -10%;
+        rotate: -18deg;
+        scale: 1;
+    }
+    50% {
+        translate: 10% 14%;
+        rotate: 10deg;
+        scale: 1.18;
+    }
+    100% {
+        translate: 16% -12%;
+        rotate: 28deg;
+        scale: 1.04;
+    }
+}
+
+.grain {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.25;
+    mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 240px 240px;
+}
+
+/* Small screens: keep it light. */
+@media (max-width: 63.999rem) {
+    .grain {
+        display: none;
+    }
+
+    .waves span {
+        animation: none;
+    }
+}

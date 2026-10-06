@@ -5,17 +5,15 @@ type HeadProps = {
     description?: string;
 };
 
-// const helmetData = new HelmetData({});
-
+/**
+ * React 19 hoists `<title>` and `<meta>` into `document.head`, ahead of the
+ * static fallbacks in `public/index.html`.
+ */
 export const Head = ({ title = '', description = '' }: HeadProps = {}) => {
     return (
-        /*<Helmet
-            helmetData={helmetData}
-            title={title ? `${title} | Bulletproof React` : undefined}
-            defaultTitle="Bulletproof React"
-        >
-            <meta name="description" content={description} />
-        </Helmet>*/
-        <div></div>
+        <>
+            {title && <title>{title}</title>}
+            {description && <meta name="description" content={description} />}
+        </>
     );
 };

@@ -1,14 +1,31 @@
 const path = require('path');
 
+const aliases = {
+    '@assets': 'src/assets/',
+    '@components': 'src/components/',
+    '@config': 'src/config/',
+    '@features': 'src/features/',
+    '@hooks': 'src/hooks/',
+    '@utils': 'src/utils/',
+    '@views': 'src/views/',
+    '@svg': 'src/assets/images/svg/',
+    '@icons': 'src/assets/images/svg/icons',
+};
+
 module.exports = {
     webpack: {
-        alias: {
-            '@assets': path.resolve(__dirname, 'src/assets/'),
-            '@components': path.resolve(__dirname, 'src/components/'),
-            '@hooks': path.resolve(__dirname, 'src/hooks/'),
-            '@views': path.resolve(__dirname, 'src/views/'),
-            '@svg': path.resolve(__dirname, 'src/assets/images/svg/'),
-            '@icons': path.resolve(__dirname, 'src/assets/images/svg/icons'),
+        alias: Object.fromEntries(
+            Object.entries(aliases).map(([alias, dir]) => [alias, path.resolve(__dirname, dir)])
+        ),
+    },
+    jest: {
+        configure: {
+            moduleNameMapper: Object.fromEntries(
+                Object.entries(aliases).map(([alias, dir]) => [
+                    `^${alias}/(.*)$`,
+                    `<rootDir>/${dir.replace(/\/$/, '')}/$1`,
+                ])
+            ),
         },
     },
 };
