@@ -1,0 +1,55 @@
+#ctx-layout {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    position: relative;
+    background-color: #030303; /* Dark base */
+    overflow-x: hidden; /* Prevents scrollbar if blobs go off-screen */
+    min-height: 100vh;
+}
+
+/* 1. The Grid Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-size: 30px 30px;
+    background-image:
+            linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    /* Fades the grid out at the edges */
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+/* 2. The Glowing Blobs */
+body::after {
+    content: "";
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(100px); /* Softens the gradients into blobs */
+    pointer-events: none;
+
+    /* We create two blobs using multiple background gradients */
+    background-image:
+            radial-gradient(circle at 40% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 40%), /* Blue/Indigo Blob */
+            radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 40%); /* Light Blue Blob */
+
+    /* Optional: Slight pulse animation */
+    animation: background-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes background-pulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+}

@@ -1,0 +1,67 @@
+.home-hero {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .hero-loc-badge {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        border-radius: 40px;
+        backdrop-filter: blur(10px);
+        padding: 0 20px;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        color: #c7d2fe;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        font-family: var(--font-mono);
+
+        .ping-dot {
+            position: relative;
+            display: inline-flex;
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-right: 0.5rem;
+            inset: 0;
+            border-radius: 50%;
+            background-color: #6366f1;
+            z-index: 1;
+        }
+
+        .ping-dot::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-color: #818cf8; /* Light Indigo */
+            opacity: 0.75;
+            animation: ping-effect 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+            z-index: 0;
+        }
+    }
+
+    .hero-main {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        h1 {
+            font-size: 6.5rem;
+            background: linear-gradient(to bottom right, #ffffff 20%, #9ca3af);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    }
+}
+
+@keyframes ping-effect {
+    75%,
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
