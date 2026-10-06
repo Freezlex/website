@@ -1,26 +1,24 @@
 {
   "name": "freezlex-website",
-  "author": "Freezlex",
-  "version": "0.1.0",
-  "private": false,
-  "homepage": "https://freezlex.com/",
+  "version": "0.2.2-alpha",
+  "private": true,
   "dependencies": {
-    "@craco/craco": "^7.1.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.2.2",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.34",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.19.7",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router": "^7.13.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.72.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^4.2.4"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -45,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "react-router-dom": "^6.22.3"
-  }
+    "@craco/craco": "^7.1.0"
+  },
+  "packageManager": "pnpm@12.9.1"
 }

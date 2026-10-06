@@ -8,8 +8,10 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     labels:
-      - "npm"
+      - "pnpm"
       - "dependencies"
       - "security"
+    reviewers:
+      - "Freezlex"

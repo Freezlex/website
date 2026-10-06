@@ -1,0 +1,252 @@
+.contact-stage {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    min-block-size: calc(100vh - 1.5rem);
+    min-block-size: calc(100dvh - 1.5rem);
+    margin: 0.75rem;
+    padding: 3rem 1.5rem calc(2rem + env(safe-area-inset-bottom));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    background: var(--wave-base);
+    scroll-margin-top: 1rem;
+}
+
+@media (min-width: 64rem) {
+    .contact-stage {
+        min-block-size: calc(100vh - 2rem);
+        min-block-size: calc(100dvh - 2rem);
+        margin: 1rem;
+        padding: 4rem var(--frame-pad) calc(2.5rem + env(safe-area-inset-bottom));
+    }
+}
+
+.contact-stage .waves {
+    inset: -20%;
+    filter: blur(40px);
+}
+
+.contact-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(99, 102, 241, 0.5), transparent);
+}
+
+.contact-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    width: 100%;
+}
+
+@media (min-width: 64rem) {
+    .contact-content {
+        gap: 2.25rem;
+    }
+}
+
+.contact-eyebrow {
+    text-transform: lowercase;
+    color: var(--text-muted);
+}
+
+.contact-eyebrow > [aria-hidden] {
+    opacity: 0.6;
+}
+
+.contact-title {
+    max-width: 9em;
+    font-size: clamp(3rem, min(13vw, 10vh), 8.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    word-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.contact-title > span {
+    padding-inline: 0.1em;
+    background-image: linear-gradient(var(--brand), var(--brand));
+    background-repeat: no-repeat;
+    background-size: 100% 0.92em;
+    background-position: 0 0.15em;
+    color: var(--brand-foreground);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--text-main);
+}
+
+@media (min-width: 64rem) {
+    .contact-row {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+}
+
+.contact-intro {
+    display: flex;
+    flex-direction: column;
+    max-width: 36rem;
+}
+
+.contact-lead {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    text-wrap: pretty;
+    color: var(--text-main);
+}
+
+@media (min-width: 40rem) {
+    .contact-lead {
+        font-size: 1.25rem;
+    }
+}
+
+.contact-handle {
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    text-underline-offset: 8px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.contact-handle:hover {
+    color: var(--brand-light);
+    text-decoration-color: var(--brand-light);
+}
+
+@media (min-width: 48rem) {
+    .contact-handle {
+        font-size: 1.125rem;
+    }
+}
+
+.contact-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-socials a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-underline-offset: 4px;
+}
+
+.contact-socials a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.contact-form-wrap {
+    width: 100%;
+    max-width: 32rem;
+    flex-shrink: 0;
+}
+
+.contact-form-label {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+/* POC pill */
+.contact-pill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-pill-id {
+    flex: 1 1 12rem;
+    min-width: 0;
+    align-self: center;
+    padding: 0.6rem 1.25rem;
+    overflow-wrap: anywhere;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: #ffffff;
+    user-select: all;
+}
+
+.contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid #ffffff;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.contact-submit:hover {
+    background: var(--text-main);
+}
+
+.contact-submit:active {
+    transform: scale(0.96);
+}
+
+.contact-status {
+    margin-top: 0.75rem;
+    padding-inline: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--brand-soft);
+}
+
+.contact-status:empty {
+    display: none;
+}
+
+@media (min-width: 40rem) {
+    .contact-pill {
+        flex-wrap: nowrap;
+        border-radius: 9999px;
+        padding: 0.35rem;
+    }
+}
+
+.contact-copyright {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-dark);
+}

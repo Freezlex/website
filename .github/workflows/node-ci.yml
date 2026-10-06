@@ -1,0 +1,34 @@
+name: Node.js CI
+on:
+  push:
+    branches: ["dev", "main"]
+  pull_request:
+    branches: ["dev", "main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: "Install dependencies"
+        run: pnpm install --frozen-lockfile
+      - name: "Run app tests"
+        run: pnpm run test --detectOpenHandles
+      - name: "Build application"
+        run: pnpm run build --if-present
