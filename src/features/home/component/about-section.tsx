@@ -19,8 +19,8 @@ export const AboutSection = () => (
                 catches my eye.
             </p>
             <p className="prose-aside">
-                Current obsession: trying to make interfaces feel &ldquo;tangible&rdquo; using
-                physics-based animations and 3D libraries.
+                Current obsession: trying to improve my infra for a better &ldquo;reliability&rdquo;
+                by migrating from docker to k8s.
             </p>
         </div>
 

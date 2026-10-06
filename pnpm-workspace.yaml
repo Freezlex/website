@@ -4,3 +4,6 @@ packages:
   - "packages/**"
   # if required, exclude directories
   - "!**/test/**"
+allowBuilds:
+  core-js: false
+  core-js-pure: false

@@ -16,7 +16,7 @@ export const createAppRouter = () =>
             path: "*",
             element: <NotFound />
         }
-    ])
+    ], {basename: process.env.PUBLIC_URL || undefined})
 
 export const AppRouter = () => {
     const router = createAppRouter();
